@@ -34,7 +34,7 @@ const products = [
 		category: 'Electronics',
 		price: 1999.99,
 		countInStock: 2,
-		rating: 4,
+		rating: 4.5,
 		numReviews: 17,
 	},
 	{
@@ -59,8 +59,8 @@ const products = [
 		brand: 'Coffeemate',
 		category: 'Dining',
 		price: 15.99,
-		countInStock: 3,
-		rating: 4.5,
+		countInStock: 0,
+		rating: 4,
 		numReviews: 10,
 	},
 	{
@@ -86,7 +86,7 @@ const products = [
 		category: 'Apparel',
 		price: 79.99,
 		countInStock: 5,
-		rating: 5,
+		rating: 4,
 		numReviews: 23,
 	},
 	{
@@ -99,7 +99,7 @@ const products = [
 		category: 'Electronics',
 		price: 199.99,
 		countInStock: 0,
-		rating: 3.5,
+		rating: 2.5,
 		numReviews: 7,
 	},
 	{
@@ -112,7 +112,7 @@ const products = [
 		category: 'Dining',
 		price: 16.99,
 		countInStock: 25,
-		rating: 5,
+		rating: 2,
 		numReviews: 2,
 	},
 	{
@@ -201,7 +201,7 @@ const products = [
 		category: 'Dining',
 		price: 23.74,
 		countInStock: 6,
-		rating: 3,
+		rating: 3.5,
 		numReviews: 231,
 	},
 	{
@@ -225,7 +225,7 @@ const products = [
 		category: 'Dining',
 		price: 19.97,
 		countInStock: 0,
-		rating: 5,
+		rating: 3,
 		numReviews: 12,
 	},
 ];
