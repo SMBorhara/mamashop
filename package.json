@@ -1,0 +1,31 @@
+{
+  "name": "mama-shop",
+  "version": "1.0.0",
+  "description": "Mama Shopping App",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/index",
+    "server": "nodemon backend/index",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \" npm run server\" \" npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMBorhara/mamashop.git"
+  },
+  "author": "Shivani M Borhara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SMBorhara/mamashop/issues"
+  },
+  "homepage": "https://github.com/SMBorhara/mamashop#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20"
+  }
+}
