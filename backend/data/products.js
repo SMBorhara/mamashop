@@ -1,6 +1,5 @@
 const products = [
 	{
-		_id: '1',
 		name: 'Airpods Wireless Bluetooth Headphones',
 		image: '/images/airpods.jpg',
 		description:
@@ -13,7 +12,6 @@ const products = [
 		numReviews: 12,
 	},
 	{
-		_id: '2',
 		name: 'iPhone 11 Pro 256GB Memory',
 		image: '/images/phone.jpg',
 		description:
@@ -26,7 +24,6 @@ const products = [
 		numReviews: 8,
 	},
 	{
-		_id: '3',
 		name: 'MacBook Pro',
 		image: '/images/macbookpro.jpg',
 		description: '14 inch MacBook in space gray with 512gb of data.',
@@ -38,7 +35,6 @@ const products = [
 		numReviews: 17,
 	},
 	{
-		_id: '4',
 		name: 'Makeup Brush Set',
 		image: '/images/makeupbrushestinted.jpg',
 		description:
@@ -51,7 +47,6 @@ const products = [
 		numReviews: 8,
 	},
 	{
-		_id: '5',
 		name: 'Make it yours mug',
 		image: '/images/personalizedcoffeemug.jpg',
 		description:
@@ -64,7 +59,6 @@ const products = [
 		numReviews: 10,
 	},
 	{
-		_id: '6',
 		name: 'Amazon Echo Dot 3rd Generation',
 		image: '/images/alexa.jpg',
 		description:
@@ -77,7 +71,6 @@ const products = [
 		numReviews: 12,
 	},
 	{
-		_id: '7',
 		name: 'Unisex Retro Style Sneaker',
 		image: '/images/80ssneaker.jpg',
 		description:
@@ -90,7 +83,6 @@ const products = [
 		numReviews: 23,
 	},
 	{
-		_id: '8',
 		name: 'Beats By Dre, Solo Gold',
 		image: '/images/beatsgold.jpg',
 		description:
@@ -103,7 +95,6 @@ const products = [
 		numReviews: 7,
 	},
 	{
-		_id: '9',
 		name: 'Coffee Buzz Set',
 		image: '/images/coffeeset.jpg',
 		description:
@@ -116,7 +107,6 @@ const products = [
 		numReviews: 2,
 	},
 	{
-		_id: '10',
 		name: 'Apple Watch',
 		image: '/images/applewatch.jpg',
 		description:
@@ -129,7 +119,6 @@ const products = [
 		numReviews: 242,
 	},
 	{
-		_id: '11',
 		name: 'Eyeshadow Palette',
 		image: '/images/eyepalette.jpg',
 		description:
@@ -142,7 +131,6 @@ const products = [
 		numReviews: 235,
 	},
 	{
-		_id: '12',
 		name: 'Face Mist',
 		image: '/images/facemist.jpg',
 		description:
@@ -155,7 +143,6 @@ const products = [
 		numReviews: 10,
 	},
 	{
-		_id: '13',
 		name: "Nike Women's Dunk High",
 		image: '/images/hightop.jpg',
 		description: 'Nike hightop women dunk style basketball sneaker',
@@ -167,7 +154,6 @@ const products = [
 		numReviews: 3432,
 	},
 	{
-		_id: '14',
 		name: 'Hydrating Daily Tinted Lip Balm',
 		image: '/images/liptint.jpg',
 		description:
@@ -180,7 +166,6 @@ const products = [
 		numReviews: 200,
 	},
 	{
-		_id: '15',
 		name: 'Polaroid Camera',
 		image: '/images/polaroid.jpg',
 		description: 'Blue tooth connected instant film camera',
@@ -192,7 +177,6 @@ const products = [
 		numReviews: 741,
 	},
 	{
-		_id: '16',
 		name: 'Wine Glass',
 		image: '/images/redwhiteglass.jpg',
 		description:
@@ -205,7 +189,6 @@ const products = [
 		numReviews: 231,
 	},
 	{
-		_id: '17',
 		name: 'Sunglass',
 		image: '/images/sunglass.jpg',
 		description: 'Wayfarer style sunglass in black or red.',
@@ -217,7 +200,6 @@ const products = [
 		numReviews: 7110,
 	},
 	{
-		_id: '18',
 		name: 'Water Can',
 		image: '/images/watercan.jpg',
 		description: '40oz stainless steel jug for hot or cold beverages',
