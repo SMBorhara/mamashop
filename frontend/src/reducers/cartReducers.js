@@ -1,13 +1,15 @@
 import { CART_ADD_ITEM } from '../constants/cartConstants';
 
-export const cartReducer = (state = { cartItems: [] }, action) => {
+export const cartReducer = (
+	state = { cartItems: [], shippingAddress: {} },
+	action
+) => {
 	switch (action.type) {
 		case CART_ADD_ITEM:
 			const item = action.payload;
-			console.log('CARTITEMS?', state);
-			console.log('ITEM', item);
+
 			const existItem = state.cartItems.find((x) => x.product === item.product);
-			
+
 			if (existItem) {
 				return {
 					...state,
@@ -16,9 +18,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 					),
 				};
 			} else {
-				return [...state.cartItems, item];
+				return {
+					...state,
+					cartItems: [...state.cartItems, item],
+				};
 			}
-			console.log('root?', existItem);
+			break;
 		default:
 			return state;
 	}

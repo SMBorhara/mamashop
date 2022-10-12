@@ -21,10 +21,9 @@ const CartScreen = () => {
 
 	const dispatch = useDispatch();
 
-	const cart = useSelector((state) => state.cart);
-	console.log('SELECTOR', cart);
-	const { cartItems } = cart;
-	console.log('DESTRUCTURE', cartItems);
+	const cartItems = useSelector((state) => state.cart.cartItems);
+
+	console.log('cartItems', cartItems);
 
 	useEffect(() => {
 		if (id) {
@@ -39,7 +38,7 @@ const CartScreen = () => {
 		<Row>
 			<Col md={8}>
 				<h1>Shopping Cart</h1>
-				{cartItems.length === 0 ? (
+				{!cartItems.length ? (
 					<Message>
 						The cart is empty <Link to="/">Go Back</Link>
 					</Message>
