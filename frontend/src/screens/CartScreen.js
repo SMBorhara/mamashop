@@ -11,12 +11,13 @@ import {
 	Card,
 } from 'react-bootstrap';
 import Message from '../components/Message';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
 	const { id } = useParams();
 
 	const location = useLocation();
+	const navigate = useNavigate();
 	const qty = location.search ? Number(location.search.split('=')[1]) : 1;
 
 	const dispatch = useDispatch();
@@ -32,7 +33,11 @@ const CartScreen = () => {
 	}, [dispatch, id, qty]);
 
 	const removeFromCartHandler = (id) => {
-		console.log('remove');
+		dispatch(removeFromCart(id));
+	};
+
+	const checkOutHandler = () => {
+		navigate('/login?=shipping');
 	};
 	return (
 		<Row>
@@ -57,7 +62,7 @@ const CartScreen = () => {
 									<Col md={2}>
 										<Form.Control
 											as="select"
-											value="qty"
+											value={item.qty}
 											onChange={(e) =>
 												dispatch(
 													addToCart(item.product, Number(e.target.value))
@@ -86,8 +91,32 @@ const CartScreen = () => {
 					</ListGroup>
 				)}
 			</Col>
-			<Col md={2}></Col>
-			<Col md={2}></Col>
+			<Col md={4}>
+				<Card>
+					<ListGroup variant="flush">
+						<ListGroup.Item>
+							<h2>
+								Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+								items{' '}
+							</h2>
+							$
+							{cartItems
+								.reduce((acc, item) => acc + item.qty * item.price, 0)
+								.toFixed(2)}
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<Button
+								type="button"
+								className="btn-block"
+								disabled={cartItems.length === 0}
+								onClick={checkOutHandler}
+							>
+								Proceed to Checkout
+							</Button>
+						</ListGroup.Item>
+					</ListGroup>
+				</Card>
+			</Col>
 		</Row>
 	);
 };
