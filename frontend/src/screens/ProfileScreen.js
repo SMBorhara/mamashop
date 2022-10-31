@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { getUserDetails, updateUserAccount } from '../actions/userActions.js';
-import { useState } from 'react';
+import { USER_UPDATE_RESET } from '../constants/userConstants';
 
 const ProfileScreen = () => {
 	const [name, setName] = useState('');
@@ -19,33 +19,29 @@ const ProfileScreen = () => {
 	const userDetails = useSelector((state) => state.userLogin);
 	const { loading, error, userInfo } = userDetails;
 
-	// const userUpdate = useSelector((state) => state.updateUserAccount);
-	// console.log(updateUserAccount);
-	// const { success } = userUpdate;
+	const userUpdate = useSelector((state) => state.userUpdateAccount);
+	const { success } = userUpdate;
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!userInfo) {
 			navigate('/login');
-		} else if (!userInfo.name) {
+		} else if (!userInfo || !userInfo.name || success) {
+			dispatch({ type: USER_UPDATE_RESET });
 			dispatch(getUserDetails('profile'));
 		} else {
 			setName(userInfo.name);
 			setEmail(userInfo.email);
 		}
-	}, [dispatch, navigate, userInfo]);
+	}, [dispatch, navigate, userInfo, success]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		if (!name || !email || !password) {
-			setMessage('All Fields Must Be filled');
-		} else if (email) {
-			setMessage('User Exists');
-		} else if (password !== confirmPass) {
+		if (password !== confirmPass) {
 			setMessage('Passwords do not match');
 		} else {
-			dispatch(updateUserAccount({ id: userInfo._id, name, email, password }));
+			dispatch(updateUserAccount({ name, email, password }));
 		}
 	};
 
@@ -55,7 +51,7 @@ const ProfileScreen = () => {
 				<h1>User Account</h1>
 				{message && <Message variant="danger">{message} </Message>}
 				{error && <Message variant="danger">{error}</Message>}
-				{/* {success && <Message variant="success">Account Updated</Message>} */}
+				{success && <Message variant="success">Account Updated</Message>}
 				{loading && <Loader />}
 				<Form onSubmit={submitHandler}>
 					<Form.Group controlId="name">
