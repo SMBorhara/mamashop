@@ -12,8 +12,8 @@ const ShippingScreen = () => {
 
 	const [address, setAddress] = useState(shippingAddress.address);
 	const [city, setCity] = useState(shippingAddress.city);
-	const [postalCode, setpostalCode] = useState(shippingAddress.postalCode);
-	const [state, setstate] = useState(shippingAddress.state);
+	const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+	const [state, setState] = useState(shippingAddress.state);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -21,7 +21,7 @@ const ShippingScreen = () => {
 	const submitHandler = (e) => {
 		e.PreventDefault();
 		dispatch(saveShippingAddress({ address, city, postalCode, state }));
-		navigate('/payment');
+		navigate('../payment', { replace: true });
 	};
 
 	return (
@@ -56,7 +56,7 @@ const ShippingScreen = () => {
 						placeholder="enter state"
 						value={state}
 						required
-						onChange={(e) => setstate(e.target.value)}
+						onChange={(e) => setState(e.target.value)}
 					></Form.Control>
 				</Form.Group>
 				<Form.Group controlId="postalCode">
@@ -66,7 +66,7 @@ const ShippingScreen = () => {
 						placeholder="enter zip"
 						value={postalCode}
 						required
-						onChange={(e) => setpostalCode(e.target.value)}
+						onChange={(e) => setPostalCode(e.target.value)}
 					></Form.Control>
 				</Form.Group>
 				<Button type="submit" variant="primary">
