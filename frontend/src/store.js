@@ -23,7 +23,19 @@ const reducer = combineReducers({
 	userUpdateAccount: userUpdateReducer,
 });
 
-const initialState = {};
+const userInfoFromStorage = localStorage.getItem('userInfo')
+	? JSON.parse(localStorage.getItem('userInfo'))
+	: null;
+
+const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
+	? JSON.parse(localStorage.getItem('shippingAddress'))
+	: null;
+const initialState = {
+	userLogin: { userInfo: userInfoFromStorage },
+	cartItems: {
+		shippingAddress: shippingAddressFromStorage,
+	},
+};
 
 const store = legacy_createStore(
 	reducer,

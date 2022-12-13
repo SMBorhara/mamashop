@@ -21,7 +21,10 @@ const ShippingScreen = () => {
 	const submitHandler = (e) => {
 		e.PreventDefault();
 		dispatch(saveShippingAddress({ address, city, postalCode, state }));
-		navigate('../payment', { replace: true });
+	};
+
+	const payment = () => {
+		navigate('/payment');
 	};
 
 	return (
@@ -69,8 +72,8 @@ const ShippingScreen = () => {
 						onChange={(e) => setPostalCode(e.target.value)}
 					></Form.Control>
 				</Form.Group>
-				<Button type="submit" variant="primary">
-					Continue
+				<Button type="submit" variant="primary" onClick={payment}>
+					Save and Continue
 				</Button>
 			</Form>
 		</FormContainer>

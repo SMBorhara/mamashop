@@ -23,6 +23,9 @@ const PayMethodScreen = () => {
 	const submitHandler = (e) => {
 		e.PreventDefault();
 		dispatch(savePayMethod(payMethod));
+	};
+
+	const payInfo = () => {
 		navigate('/placeorder');
 	};
 
@@ -44,9 +47,18 @@ const PayMethodScreen = () => {
 							checked
 							onChange={(e) => setPayMethod(e.target.value)}
 						></Form.Check>
+						<Form.Check
+							type="radio"
+							label="Stripe"
+							id="Stripe"
+							name="payMethod"
+							value="Stripe"
+							onChange={(e) => setPayMethod(e.target.value)}
+						></Form.Check>
 					</Col>
 				</Form.Group>
-				<Button type="submit" variant="primary">
+
+				<Button type="submit" variant="primary" onClick={payInfo}>
 					Continue
 				</Button>
 			</Form>
