@@ -17,7 +17,8 @@ const RegisterScreen = () => {
 
 	const dispatch = useDispatch();
 
-	const userRegister = useSelector((state) => state.userLogin);
+	const userRegister = useSelector((state) => state.userRegister);
+
 	const { loading, error, userInfo } = userRegister;
 
 	const location = useLocation();
@@ -32,11 +33,7 @@ const RegisterScreen = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		if (!name || !email || !password) {
-			setMessage('All Fields Must Be filled');
-		} else if (email) {
-			setMessage('User Exists');
-		} else if (password !== confirmPass) {
+		if (password !== confirmPass) {
 			setMessage('Passwords do not match');
 		} else {
 			dispatch(register(name, email, password));
