@@ -7,8 +7,13 @@ import Checkout from '../components/Checkout';
 import { saveShippingAddress } from '../actions/cartActions.js';
 
 const ShippingScreen = () => {
-	const cart = useSelector((state) => state.cart);
-	const { shippingAddress } = cart;
+	// const cart = useSelector((state) => state.cart);
+	// const { shippingAddress } = cart;
+
+	const shippingAddress = localStorage.getItem('shippingAddress')
+    ? JSON.parse(localStorage.getItem('shippingAddress'))
+    : {};
+	console.log(shippingAddress);
 
 	const [address, setAddress] = useState(shippingAddress.address);
 	const [city, setCity] = useState(shippingAddress.city);
@@ -21,9 +26,6 @@ const ShippingScreen = () => {
 	const submitHandler = (e) => {
 		e.PreventDefault();
 		dispatch(saveShippingAddress({ address, city, postalCode, state }));
-	};
-
-	const payment = () => {
 		navigate('/payment');
 	};
 
@@ -72,7 +74,7 @@ const ShippingScreen = () => {
 						onChange={(e) => setPostalCode(e.target.value)}
 					></Form.Control>
 				</Form.Group>
-				<Button type="submit" variant="primary" onClick={payment}>
+				<Button type="submit" variant="primary">
 					Save and Continue
 				</Button>
 			</Form>

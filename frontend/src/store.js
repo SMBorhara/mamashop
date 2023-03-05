@@ -37,6 +37,8 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
 	? JSON.parse(localStorage.getItem('shippingAddress'))
 	: null;
 
+console.log('STORE', shippingAddressFromStorage);
+
 const paymentMethodFromStorage = localStorage.getItem('payMethod')
 	? JSON.parse(localStorage.getItem('payMethod'))
 	: '';
